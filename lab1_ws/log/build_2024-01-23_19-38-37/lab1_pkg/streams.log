@@ -1,0 +1,92 @@
+[0.126s] Invoking command in '/home/tim/lab1_ws/build/lab1_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/tim/lab1_ws/src/lab1_pkg -DCMAKE_INSTALL_PREFIX=/home/tim/lab1_ws/install/lab1_pkg
+[0.163s] -- The C compiler identification is GNU 9.4.0
+[0.201s] -- The CXX compiler identification is GNU 9.4.0
+[0.205s] -- Check for working C compiler: /usr/bin/cc
+[0.250s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.250s] -- Detecting C compiler ABI info
+[0.297s] -- Detecting C compiler ABI info - done
+[0.306s] -- Detecting C compile features
+[0.306s] -- Detecting C compile features - done
+[0.308s] -- Check for working CXX compiler: /usr/bin/c++
+[0.366s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.367s] -- Detecting CXX compiler ABI info
+[0.435s] -- Detecting CXX compiler ABI info - done
+[0.447s] -- Detecting CXX compile features
+[0.448s] -- Detecting CXX compile features - done
+[0.449s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.471s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.472s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.619s] -- Found ackermann_msgs: 2.0.2 (/home/tim/ackermann_msgs-ros2/install/ackermann_msgs/share/ackermann_msgs/cmake)
+[0.640s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.644s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.691s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.710s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.764s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.832s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.865s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.866s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.867s] -- Looking for pthread.h
+[0.916s] -- Looking for pthread.h - found
+[0.916s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.965s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.965s] -- Looking for pthread_create in pthreads
+[1.011s] -- Looking for pthread_create in pthreads - not found
+[1.011s] -- Looking for pthread_create in pthread
+[1.064s] -- Looking for pthread_create in pthread - found
+[1.065s] -- Found Threads: TRUE  
+[1.179s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[1.199s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[1.252s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.252s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.253s] -- Configured cppcheck include dirs: /home/tim/lab1_ws/src/lab1_pkg/include
+[1.253s] -- Configured cppcheck exclude dirs and/or files: 
+[1.253s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.254s] -- Configured cpplint exclude dirs and/or files: 
+[1.254s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.254s] -- Added test 'lint_cmake' to check CMake code style
+[1.255s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[1.255s] -- Added test 'uncrustify' to check C / C++ code style
+[1.255s] -- Configured uncrustify additional arguments: 
+[1.256s] -- Added test 'xmllint' to check XML markup files
+[1.258s] -- Configuring done
+[1.262s] -- Generating done
+[1.263s] -- Build files have been written to: /home/tim/lab1_ws/build/lab1_pkg
+[1.269s] Invoked command in '/home/tim/lab1_ws/build/lab1_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/tim/lab1_ws/src/lab1_pkg -DCMAKE_INSTALL_PREFIX=/home/tim/lab1_ws/install/lab1_pkg
+[1.271s] Invoking command in '/home/tim/lab1_ws/build/lab1_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tim/lab1_ws/build/lab1_pkg -- -j8 -l8
+[1.297s] [35m[1mScanning dependencies of target cpp_executable[0m
+[1.322s] [ 50%] [32mBuilding CXX object CMakeFiles/cpp_executable.dir/src/cpp_node.cpp.o[0m
+[2.590s] [100%] [32m[1mLinking CXX executable cpp_executable[0m
+[2.663s] [100%] Built target cpp_executable
+[2.670s] Invoked command in '/home/tim/lab1_ws/build/lab1_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tim/lab1_ws/build/lab1_pkg -- -j8 -l8
+[2.695s] Invoking command in '/home/tim/lab1_ws/build/lab1_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tim/lab1_ws/build/lab1_pkg
+[2.700s] -- Install configuration: ""
+[2.700s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/lab1_pkg/cpp_executable
+[2.701s] -- Set runtime path of "/home/tim/lab1_ws/install/lab1_pkg/lib/lab1_pkg/cpp_executable" to ""
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/pythonpath.sh
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/pythonpath.dsv
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/__init__.py
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/module_to_import.py
+[2.701s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/publisher_member_function.py
+[2.723s] Listing '/home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg'...
+[2.723s] Compiling '/home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/__init__.py'...
+[2.723s] Compiling '/home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/module_to_import.py'...
+[2.723s] Compiling '/home/tim/lab1_ws/install/lab1_pkg/lib/python3.8/site-packages/lab1_pkg/publisher_member_function.py'...
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/lab1_pkg/talker.py
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/lib/lab1_pkg/relay.py
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/ament_index/resource_index/package_run_dependencies/lab1_pkg
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/ament_index/resource_index/parent_prefix_path/lab1_pkg
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/ament_prefix_path.sh
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/ament_prefix_path.dsv
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/path.sh
+[2.726s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/environment/path.dsv
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/local_setup.bash
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/local_setup.sh
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/local_setup.zsh
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/local_setup.dsv
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/package.dsv
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/ament_index/resource_index/packages/lab1_pkg
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/cmake/lab1_pkgConfig.cmake
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/cmake/lab1_pkgConfig-version.cmake
+[2.727s] -- Installing: /home/tim/lab1_ws/install/lab1_pkg/share/lab1_pkg/package.xml
+[2.729s] Invoked command in '/home/tim/lab1_ws/build/lab1_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tim/lab1_ws/build/lab1_pkg
