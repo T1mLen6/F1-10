@@ -26,7 +26,10 @@ class SafetyNode(Node):
 
         NOTE that the x component of the linear velocity in odom is the speed
         """
-        self.speed = 0.
+        self.speed = 0.01
+        self.last_min = 0.01
+        self.lastlast_min = 0.01
+        self.this_min = 0.01
         # TODO: create ROS subscribers and publishers.
 
         self.publisher_ = self.create_publisher(AckermannDriveStamped, 'drive', 10)
@@ -69,20 +72,26 @@ class SafetyNode(Node):
     def scan_callback(self, scan_msg):
         # TODO: calculate TTC
         TTC = scan_msg.ranges[540] / self.speed
-
+        # self.this_min = scan_msg.range_min
+        # lateral_spd = (self.lastlast_min - self.last_min) / scan_msg.scan_time
+        # lateral_TTC = (self.last_min - self.this_min) / lateral_spd
         #scan_msg.scan.ranges 
         #print('yeah', scan_msg.angle_min)
-        self.get_logger().info('Received range: %s' % scan_msg.ranges[540])
-        self.get_logger().info('TTC: %s' % TTC)
-        #self.get_logger().info('Received min angle: %s' % scan_msg.angle_increment)
+        #self.get_logger().info('Scan step%s' % scan_msg.scan_time)
+        #self.get_logger().info('Received range: %s' % scan_msg.range_min )
+        #self.get_logger().info('TTC: %s' % lateral_TTC)
+        #self.get_logger().info('Received time incre: %s' % scan_msg.time_increment)
 
         threshold = 2.0
         if TTC <= threshold:
-          ADS = AckermannDriveStamped()
-          ADS.drive.speed = 0.0
-          self.publisher_.publish(ADS)
+            ADS = AckermannDriveStamped()
+            ADS.drive.speed = 0.0
+            self.publisher_.publish(ADS)
 
 
+        # self.lastlast_min = self.last_min
+        # self.last_min = self.this_min
+        
         # TODO: publish command to brake
         #pass
 
