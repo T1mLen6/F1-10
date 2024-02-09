@@ -5,7 +5,7 @@ set(safety_node_BUILD_DEPENDS "rclcpp" "rclpy" "std_msgs" "sensor_msgs" "ackerma
 set(safety_node_BUILDTOOL_DEPENDS "ament_cmake" "ament_cmake_python")
 set(safety_node_BUILD_EXPORT_DEPENDS "rclcpp" "rclpy" "std_msgs" "sensor_msgs" "ackermann_msgs" "nav_msgs")
 set(safety_node_BUILDTOOL_EXPORT_DEPENDS )
-set(safety_node_EXEC_DEPENDS "rclcpp" "rclpy" "std_msgs" "sensor_msgs" "ackermann_msgs" "nav_msgs")
+set(safety_node_EXEC_DEPENDS "ros2launch" "rclcpp" "rclpy" "std_msgs" "sensor_msgs" "ackermann_msgs" "nav_msgs")
 set(safety_node_TEST_DEPENDS "ament_lint_auto" "ament_lint_common")
 set(safety_node_GROUP_DEPENDS )
 set(safety_node_MEMBER_OF_GROUPS )

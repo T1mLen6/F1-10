@@ -77,9 +77,9 @@ class SafetyNode(Node):
         # lateral_TTC = (self.last_min - self.this_min) / lateral_spd
         #scan_msg.scan.ranges 
         #print('yeah', scan_msg.angle_min)
-        #self.get_logger().info('Scan step%s' % scan_msg.scan_time)
-        #self.get_logger().info('Received range: %s' % scan_msg.range_min )
-        #self.get_logger().info('TTC: %s' % lateral_TTC)
+        self.get_logger().info('min%s' % scan_msg.angle_min)
+        self.get_logger().info('max: %s' % scan_msg.angle_max )
+        self.get_logger().info('increment: %s' % scan_msg.angle_increment )
         #self.get_logger().info('Received time incre: %s' % scan_msg.time_increment)
 
         threshold = 2.0

@@ -3,6 +3,7 @@
 /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/pythonpath.dsv
 /home/tim/F1_10/sim_ws/install/safety_node/lib/python3.8/site-packages/safety_node/__init__.py
 /home/tim/F1_10/sim_ws/install/safety_node/lib/safety_node/safety_node.py
+/home/tim/F1_10/sim_ws/install/safety_node/share/safety_node//launch/safety_node_launch.py
 /home/tim/F1_10/sim_ws/install/safety_node/share/ament_index/resource_index/package_run_dependencies/safety_node
 /home/tim/F1_10/sim_ws/install/safety_node/share/ament_index/resource_index/parent_prefix_path/safety_node
 /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/ament_prefix_path.sh
