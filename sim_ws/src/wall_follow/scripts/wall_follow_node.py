@@ -126,7 +126,7 @@ class WallFollow(Node):
         
         self.publisher_.publish(drive_msg)
 
-        drive_msg = AckermannDriveStamped()
+      
         # TODO: fill in drive message and publish
 
     def scan_callback(self, msg):

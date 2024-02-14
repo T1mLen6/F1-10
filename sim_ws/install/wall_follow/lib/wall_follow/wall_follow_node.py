@@ -89,8 +89,7 @@ class WallFollow(Node):
         alpha = -np.arctan2(a*np.cos(self.theta) - b, a*np.sin(self.theta))
         error = dist - b*np.cos(alpha)
 
-        self.get_logger().info('a: '+str(a))
-        self.get_logger().info('b: '+str(b))
+
 
         #self.prev_error = self.error
 
@@ -112,7 +111,8 @@ class WallFollow(Node):
         gain = self.kp*error + self.kd*(self.error-self.prev_error)
         steering_angle = -gain
         #self.get_logger().info('   gain: '+str(gain))
-        self.get_logger().info('   steering_angle: '+str(steering_angle)+'\n')
+        
+        
         drive_msg = AckermannDriveStamped()
         drive_msg.drive.steering_angle = steering_angle
         drive_msg.drive.speed = velocity
@@ -126,7 +126,7 @@ class WallFollow(Node):
         
         self.publisher_.publish(drive_msg)
 
-        drive_msg = AckermannDriveStamped()
+      
         # TODO: fill in drive message and publish
 
     def scan_callback(self, msg):
