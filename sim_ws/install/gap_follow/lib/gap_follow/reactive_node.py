@@ -32,6 +32,7 @@ class ReactiveFollowGap(Node):
         
         self.subscription  # prevent unused variable warning
         self.abab = 0
+        self.threshold = 2.1
 
 
     def preprocess_lidar(self, ranges):
@@ -40,7 +41,9 @@ class ReactiveFollowGap(Node):
             2.Rejecting high values (eg. > 3m)
         """
         
-        thershold = 4
+        #thershold = 2.5
+
+        #thershold_lower = 0.2
         
 
         # Reshape the array into groups of 3 elements
@@ -51,9 +54,10 @@ class ReactiveFollowGap(Node):
 
         averages_repeated = np.repeat(average_per_group, 3)
 
-        proc_ranges = np.minimum(averages_repeated, thershold)
+        proc_ranges = np.minimum(averages_repeated, self.threshold)
         #self.get_logger().info('-------------------------%s' % np.argmax(proc_ranges))
-
+        proc_ranges[0:200] = 0.001
+        proc_ranges[-200:0] = 0.001
 
 
         return proc_ranges
@@ -61,7 +65,7 @@ class ReactiveFollowGap(Node):
     def find_max_gap(self, free_space_ranges):
         """ Return the start index & end index of the max gap in free_space_ranges
         """
-        t = 2
+        t = 1.8
         free_space_ranges = np.maximum(free_space_ranges - t, 0)
 
         gap_index_count = np.zeros(len(free_space_ranges))
@@ -88,13 +92,6 @@ class ReactiveFollowGap(Node):
             start_index = index_b
             end_index = index_a
 
-
-
-
-        
-
-
-
         return start_index, end_index
     
     def find_best_point(self, start_i, end_i, ranges):
@@ -103,18 +100,24 @@ class ReactiveFollowGap(Node):
 	    Naive: Choose the furthest point within ranges and go there
         """
         subset_array = ranges[start_i:end_i + 1]
-
-        max_index = np.argmax(subset_array) + start_i
         mid_index = (start_i + end_i) // 2
 
-        # if abs(max_index - start_i) < 100:
-        #     max_index += 100
+        if abs(np.mean(subset_array)) - self.threshold <= 0.0001:
+            return mid_index
 
-        # if abs(max_index - end_i) < 100:
-        #     max_index -= 100
+        max_index = np.argmax(subset_array) + start_i
 
 
-        return (max_index + mid_index)//2
+        # if max_index < 520:
+        #     max_index -= abs(max_index - 520) // 2
+
+        # if max_index > 560:
+        #     max_index += abs(max_index - 560) // 2
+
+    
+
+        return max_index
+        #return (max_index*5 + mid_index)//6
 
     def lidar_callback(self, data):
         """ Process each LiDAR scan as per the Follow Gap algorithm & publish an AckermannDriveStamped Message
@@ -124,11 +127,13 @@ class ReactiveFollowGap(Node):
         
         # TODO:
         #Find closest point to LiDAR
-        #min_index = np.argmin(proc_ranges)
+        min_index = 200 + np.argmin(proc_ranges[200:-199])
+
+        self.get_logger().info('Min distance: %s ' % min_index)
 
         #Eliminate all points inside 'bubble' (set them to zero) 
-        #bubble_radius = 100
-        #proc_ranges[np.maximum(min_index-bubble_radius,0) : np.minimum(min_index+bubble_radius,len(proc_ranges))+1] = 0
+        bubble_radius = 75
+        proc_ranges[min_index-bubble_radius : min_index+bubble_radius] = 0
 
 
         #Find max length gap 
@@ -137,14 +142,14 @@ class ReactiveFollowGap(Node):
         
         max_index = self.find_best_point(start_index, end_index, proc_ranges)
         #self.get_logger().info('start index%s' % start_index)
-        self.get_logger().info('max index %s ' % max_index)
+        #self.get_logger().info('max index %s ' % max_index)
 
         #Publish Drive message
         drive_msg = AckermannDriveStamped()
 
-        steering_angle =  (0.0043518519*max_index - 2.35) * 0.75
+        steering_angle =  (0.0043518519*max_index - 2.35)*1.2
 
-        self.get_logger().info('steering_angle %s ' % steering_angle)
+        #self.get_logger().info('steering_angle %s ' % steering_angle)
         
         #if self.abab % 50 == 0:
             
@@ -152,12 +157,12 @@ class ReactiveFollowGap(Node):
         
 
         #steering_angle = 0.0
-        velocity = 0.5
+        velocity = 1.5
 
         drive_msg.drive.steering_angle = steering_angle
 
-        # if steering_angle > 0.35:
-        #     velocity = 0.5
+        if steering_angle > 0.35:
+            velocity = 0.8
         # else:
         #     velocity = -2.8498*abs(steering_angle) + 1.497
 
