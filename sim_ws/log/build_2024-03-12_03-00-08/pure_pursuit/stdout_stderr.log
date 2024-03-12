@@ -1,0 +1,26 @@
+[100%] Built target pure_pursuit_node
+-- Install configuration: ""
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/lib/pure_pursuit/pure_pursuit_node
+-- Set non-toolchain portion of runtime path of "/home/tim/F1_10/sim_ws/install/pure_pursuit/lib/pure_pursuit/pure_pursuit_node" to ""
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/pythonpath.sh
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/pythonpath.dsv
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/lib/python3.8/site-packages/pure_pursuit
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/lib/python3.8/site-packages/pure_pursuit/__init__.py
+Listing '/home/tim/F1_10/sim_ws/install/pure_pursuit/lib/python3.8/site-packages/pure_pursuit'...
+Compiling '/home/tim/F1_10/sim_ws/install/pure_pursuit/lib/python3.8/site-packages/pure_pursuit/__init__.py'...
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/lib/pure_pursuit/pure_pursuit_node.py
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/ament_index/resource_index/package_run_dependencies/pure_pursuit
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/ament_index/resource_index/parent_prefix_path/pure_pursuit
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/ament_prefix_path.sh
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/ament_prefix_path.dsv
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/path.sh
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/environment/path.dsv
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/local_setup.bash
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/local_setup.sh
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/local_setup.zsh
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/local_setup.dsv
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/package.dsv
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/ament_index/resource_index/packages/pure_pursuit
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/cmake/pure_pursuitConfig.cmake
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/cmake/pure_pursuitConfig-version.cmake
+-- Installing: /home/tim/F1_10/sim_ws/install/pure_pursuit/share/pure_pursuit/package.xml
