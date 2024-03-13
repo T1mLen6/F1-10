@@ -1,0 +1,100 @@
+[0.663s] Invoking command in '/home/tim/F1_10/sim_ws/build/safety_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake /home/tim/F1_10/sim_ws/src/safety_node -DCMAKE_INSTALL_PREFIX=/home/tim/F1_10/sim_ws/install/safety_node
+[0.715s] -- The C compiler identification is GNU 9.4.0
+[0.756s] -- The CXX compiler identification is GNU 9.4.0
+[0.767s] -- Detecting C compiler ABI info
+[0.824s] -- Detecting C compiler ABI info - done
+[0.833s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.833s] -- Detecting C compile features
+[0.834s] -- Detecting C compile features - done
+[0.841s] -- Detecting CXX compiler ABI info
+[0.892s] -- Detecting CXX compiler ABI info - done
+[0.901s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.902s] -- Detecting CXX compile features
+[0.902s] -- Detecting CXX compile features - done
+[0.904s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.907s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.907s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.907s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.907s]   the cmake_policy command to set the policy and suppress this warning.
+[0.907s] 
+[0.907s] Call Stack (most recent call first):
+[0.907s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.907s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.907s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.907s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.907s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.907s]   CMakeLists.txt:24 (find_package)
+[0.908s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.908s] [0m
+[0.923s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.923s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.078s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.114s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.120s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.171s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.196s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.263s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.308s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.309s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.310s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.352s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.352s] -- Looking for pthread_create in pthreads
+[1.383s] -- Looking for pthread_create in pthreads - not found
+[1.383s] -- Looking for pthread_create in pthread
+[1.422s] -- Looking for pthread_create in pthread - found
+[1.423s] -- Found Threads: TRUE  
+[1.544s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[1.545s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[1.641s] -- Found ackermann_msgs: 2.0.2 (/home/tim/ackermann_msgs-ros2/install/ackermann_msgs/share/ackermann_msgs/cmake)
+[1.670s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[1.755s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[1.816s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.817s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.817s] -- Configured cppcheck include dirs: /home/tim/F1_10/sim_ws/src/safety_node/include
+[1.817s] -- Configured cppcheck exclude dirs and/or files: 
+[1.818s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.818s] -- Configured cpplint exclude dirs and/or files: 
+[1.819s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.819s] -- Added test 'lint_cmake' to check CMake code style
+[1.820s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[1.821s] -- Added test 'uncrustify' to check C / C++ code style
+[1.821s] -- Configured uncrustify additional arguments: 
+[1.821s] -- Added test 'xmllint' to check XML markup files
+[1.822s] -- Configuring done (1.1s)
+[1.834s] -- Generating done (0.0s)
+[1.834s] -- Build files have been written to: /home/tim/F1_10/sim_ws/build/safety_node
+[1.844s] Invoked command in '/home/tim/F1_10/sim_ws/build/safety_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake /home/tim/F1_10/sim_ws/src/safety_node -DCMAKE_INSTALL_PREFIX=/home/tim/F1_10/sim_ws/install/safety_node
+[1.845s] Invoking command in '/home/tim/F1_10/sim_ws/build/safety_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake --build /home/tim/F1_10/sim_ws/build/safety_node -- -j8 -l8
+[1.878s] [ 50%] [32mBuilding CXX object CMakeFiles/safety_node.dir/src/safety_node.cpp.o[0m
+[3.261s] [100%] [32m[1mLinking CXX executable safety_node[0m
+[3.369s] [100%] Built target safety_node
+[3.375s] Invoked command in '/home/tim/F1_10/sim_ws/build/safety_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake --build /home/tim/F1_10/sim_ws/build/safety_node -- -j8 -l8
+[3.426s] Invoking command in '/home/tim/F1_10/sim_ws/build/safety_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake --install /home/tim/F1_10/sim_ws/build/safety_node
+[3.446s] -- Install configuration: ""
+[3.446s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/lib/safety_node/safety_node
+[3.446s] -- Set non-toolchain portion of runtime path of "/home/tim/F1_10/sim_ws/install/safety_node/lib/safety_node/safety_node" to ""
+[3.446s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/pythonpath.sh
+[3.447s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/pythonpath.dsv
+[3.447s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/lib/python3.8/site-packages/safety_node
+[3.447s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/lib/python3.8/site-packages/safety_node/__init__.py
+[3.472s] Listing '/home/tim/F1_10/sim_ws/install/safety_node/lib/python3.8/site-packages/safety_node'...
+[3.472s] Compiling '/home/tim/F1_10/sim_ws/install/safety_node/lib/python3.8/site-packages/safety_node/__init__.py'...
+[3.477s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/lib/safety_node/safety_node.py
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node//launch
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node//launch/safety_node_launch.py
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/ament_index/resource_index/package_run_dependencies/safety_node
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/ament_index/resource_index/parent_prefix_path/safety_node
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/ament_prefix_path.sh
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/ament_prefix_path.dsv
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/path.sh
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/environment/path.dsv
+[3.478s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/local_setup.bash
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/local_setup.sh
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/local_setup.zsh
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/local_setup.dsv
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/package.dsv
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/ament_index/resource_index/packages/safety_node
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/cmake/safety_nodeConfig.cmake
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/cmake/safety_nodeConfig-version.cmake
+[3.479s] -- Installing: /home/tim/F1_10/sim_ws/install/safety_node/share/safety_node/package.xml
+[3.786s] Invoked command in '/home/tim/F1_10/sim_ws/build/safety_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tim/F1_10/sim_ws/install/f1tenth_gym_ros:/opt/ros/foxy /home/tim/.local/bin/cmake --install /home/tim/F1_10/sim_ws/build/safety_node
