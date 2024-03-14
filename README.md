@@ -1,1 +1,1 @@
-CMU F1Tenth Racing
+CMU F1Tenth Racing Project.
