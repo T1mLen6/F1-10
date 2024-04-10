@@ -9,6 +9,7 @@ from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 from geometry_msgs.msg import Quaternion
 from visualization_msgs.msg import Marker
 import tf2_ros
+from nav_msgs.msg import OccupancyGrid
 
 
 # TODO CHECK: include needed ROS msg type headers and libraries
@@ -33,8 +34,16 @@ class PurePursuit(Node):
             self.pose_callback,
             10)
         
+        self.scan_sub_ = self.create_subscription(
+            LaserScan,
+            "/scan",
+            self.scan_callback,
+            1)
+        self.scan_sub_
         
         self.subscription  # prevent unused variable warning
+
+        self.publisher3_ = self.create_publisher(OccupancyGrid, '/grid', 10)
 
         data = np.genfromtxt('src/pure_pursuit/scripts/waypoint.csv', delimiter=',')
 
@@ -43,7 +52,51 @@ class PurePursuit(Node):
         self.y_values = data[:, 1]  # Selecting all rows from the second column
 
         self.i = 0
-        self.kp = 0.3
+        self.kp = 1
+
+    def scan_callback(self, scan_msg):
+        """
+        LaserScan callback, you should update your occupancy grid here
+
+        Args: 
+            scan_msg (LaserScan): incoming message from subscribed topic
+        Returns:
+
+        """
+        range_data = scan_msg
+        
+        angle = 30 / 180 * np.pi
+
+        indexL = 1080 - int(((-np.pi/2 + angle) - range_data.angle_min) / range_data.angle_increment)
+        indexR = 0 - int(((np.pi/2 - angle) - range_data.angle_max) /range_data.angle_increment) 
+
+        self.L_range = range_data.ranges[indexL]
+        self.R_range = range_data.ranges[indexR]
+
+        self.occupancy_map = OccupancyGrid()
+        self.occupancy_map.header = scan_msg.header
+        self.occupancy_map.info.width = 30 #cells
+        self.occupancy_map.info.height = 20 #cells
+        self.occupancy_map.info.resolution = 0.1 # m/cell
+        self.occupancy_map.info.origin.position.x = 0.0
+        self.occupancy_map.info.origin.position.y = -1.0
+        grid = [0] * (30 * 20)
+
+        for i, range_measurement in enumerate(scan_msg.ranges):
+            # if range_measurement < scan_msg.range_max:
+            # range_measurement -= 0.3
+            grid_x= int((range_measurement * np.cos( scan_msg.angle_min + i * scan_msg.angle_increment)) / self.occupancy_map.info.resolution)
+            grid_y= int((1.+ range_measurement * np.sin( scan_msg.angle_min + i * scan_msg.angle_increment)) / self.occupancy_map.info.resolution)
+            # if grid_y > 19: 
+            #     grid_y -=2
+            # else:
+            #     grid_y +=2
+            if 0.0 <= grid_x < 30 and 0.0 <= grid_y < 20:
+                index = grid_x + grid_y * 30
+                grid[index] = 75
+
+        self.occupancy_map.data = grid
+        self.publisher3_.publish(self.occupancy_map)
 
     def quaternion_to_rpy(self, x,y,z,w):
 
@@ -72,35 +125,24 @@ class PurePursuit(Node):
     def angle(self, x_array, y_array, x, y):   
         # Coordinates of the starting point
         a, b = x, y
-
         dx = x_array - a
         dy = y_array - b
-
         angle = np.arctan2(dy, dx)
-
         return angle
 
     def convert_coordinates(self, x, y, shift_x, shift_y, angle_radians):
         # Convert the angle from degrees to radians
         angle_radians = -angle_radians + 3.1415926/2
-
-
         translation_x = x - shift_x
         translation_y = y - shift_y
         # Define the transformation matrix
         transformation_matrix = np.array([
         [np.cos(angle_radians), -np.sin(angle_radians)],
-        [np.sin(angle_radians), np.cos(angle_radians)]
-    ])
-
+        [np.sin(angle_radians), np.cos(angle_radians)]])
         # Apply the transformation
         rotated_point = np.dot(transformation_matrix, np.array([translation_x, translation_y]))
-    
         transformed_a, transformed_b = rotated_point #+ np.array([shift_x, shift_y])
-
         # Add the shift
-        
-
         return transformed_a, transformed_b
 
     def pose_callback(self, pose_msg):
@@ -122,7 +164,7 @@ class PurePursuit(Node):
 
         angle_diff_arr = np.abs(yaw - angle_arr)
 
-        qualified_angle_index_arr = np.where(angle_diff_arr < 1.5)
+        qualified_angle_index_arr = np.where(angle_diff_arr < 1.75)
 
         selected_x = self.x_values[qualified_angle_index_arr]
         selected_y = self.y_values[qualified_angle_index_arr]
@@ -188,14 +230,14 @@ class PurePursuit(Node):
         
         
         drive_msg = AckermannDriveStamped()
-        drive_msg.drive.steering_angle = steering_angle
-        drive_msg.drive.speed = 1.5
+        drive_msg.drive.steering_angle = steering_angle*1.5
+        drive_msg.drive.speed = 0.5
 
         if abs(steering_angle) < 0.1745:
-            drive_msg.drive.speed = 1.25
+            drive_msg.drive.speed = 0.25
 
         elif abs(steering_angle) < 0.35:
-            drive_msg.drive.speed = 0.75
+            drive_msg.drive.speed = 0.2
        
        
        
